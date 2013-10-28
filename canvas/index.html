@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Canvas</title>
+
+<style type="text/css" media="screen">
+		
+	table {
+		
+		float: left;
+		border: 1px solid black;
+	}
+
+	td {
+
+		border: 1px solid #d3d3d3;
+		padding: 2px;
+	}
+
+	canvas {
+		float: left;
+		margin-left: 5px;
+	}
+
+</style>	
+
+<script src="jquery-1.9.1-min.js"></script>
+
+</head>
+<body>
+
+<!--  Organize and display images  I am going to use a table to keep the size consistant  -->
+
+<table>
+	<caption>Choose Something Nice</caption>
+	<thead>
+		<tr>
+			<th>Image</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><img id="googlebot" src="images/ゲルガル.png" alt="google-bot" height="100" width="75"></td>
+		</tr>
+		<tr>
+			<td><img id="AAA_01" src="images/AAA-lg-01.jpg" alt="Akiba-01" height="100" width="100"></td>
+		</tr>
+		<tr>
+			<td><img id="AsukaCoffee" src="images/AsukaCoffee.jpg" alt="Asuka Coffee Art" height="100" width="100"></td>
+		</tr>
+		<tr>
+			<td><img id="badge" src="images/badge.png" alt="Badge" height="100" width="100"></td>
+		</tr>
+		<tr>
+			<td><img id="AAA_02" src="images/AAA-lg02.jpg" alt="Akiba-02" height="100" width="100"></td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+<!--  Begin Canvas  -->
+	<canvas id="canvasRcool" height="500" width="500" style="border:1px solid black; background: #d3d3d3;">
+		Your Browser does not support the Canvas tag
+	</canvas>
+	
+<script>
+/* you will need these variables for everything declare them outside of your functions c = canvas : ctx = context */
+var c = document.getElementById('canvasRcool');
+var ctx = c.getContext("2d");
+
+function nuke() {
+
+// Store the current transformation matrix
+ctx.save();
+
+// Use the identity matrix while clearing the canvas
+ctx.setTransform(1, 0, 0, 1, 0, 0);
+ctx.clearRect(0, 0, c.width, c.height);
+
+// Restore the transform
+ctx.restore();
+}
+
+/* This is what a standard JavaScript onload function looks like */
+document.getElementById("googlebot").onload=function(){
+	
+	var img = document.getElementById('googlebot');
+	
+	ctx.drawImage(img,10,10,250,300);
+	}	
+
+/* now let's switch to jqeury so we can cut some corners */
+$('#googlebot').click(function(){
+	nuke();
+	var img = document.getElementById('googlebot');
+	ctx.drawImage(img,10,10);
+});
+
+$('#AAA_01').click(function(){
+	nuke();
+	var img = document.getElementById('AAA_01');
+	ctx.drawImage(img,10,10);
+});
+
+$('#AsukaCoffee').click(function(){
+	nuke();
+	var img = document.getElementById('AsukaCoffee');
+	ctx.drawImage(img,10,10,250,300);
+});
+
+$('#badge').click(function(){
+	nuke();
+	var img = document.getElementById('badge');
+	ctx.drawImage(img,10,10,250,300);
+});
+
+$('#AAA_02').click(function(){
+	nuke();
+	var img = document.getElementById('AAA_02');
+	ctx.drawImage(img,10,10,250,300);
+});
+
+</script>
+
+</body>
+</html>

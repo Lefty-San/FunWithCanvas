@@ -23,6 +23,17 @@
 		margin-left: 5px;
 	}
 
+	#canvasCanStack {
+		z-index: 2;
+		margin-left: -500px;
+	}
+
+	#sample {
+		border: 1px solid black;
+		background: #d3d3d3;
+		color: yellow;
+	}
+
 </style>	
 
 <script src="jquery-1.9.1-min.js"></script>
@@ -64,12 +75,18 @@
 	<canvas id="canvasRcool" height="500" width="500" style="border:1px solid black; background: #d3d3d3;">
 		Your Browser does not support the Canvas tag
 	</canvas>
+
+	<canvas id="canvasCanStack" height="500" width="500"></canvas>
 	
+	<a id="sample">Click Me</a>
+
 <script>
 /* you will need these variables for everything declare them outside of your functions c = canvas : ctx = context */
 var c = document.getElementById('canvasRcool');
 var ctx = c.getContext("2d");
 var img = $('#googlebot');
+var l = document.getElementById("canvasCanStack");
+var lctx = l.getContext("2d"); 
 
 function nuke() {
 
@@ -119,7 +136,7 @@ $('#AsukaCoffee').click(function(){
 	img = document.getElementById('AsukaCoffee');
 	var x = (c.width-img.width)/5;
 	var y = (c.height-img.height)/4;
-//This is a special circumstance where the image is way bigger than everything else. I had to set a scale size to make it fit I am thinking about making logic to handle this but in reality image assets would be of consistant size so this is kind of a waste
+/* This is a special circumstance where the image is way bigger than everything else. I had to set a scale size to make it fit I am thinking about making logic to handle this but in reality image assets would be of consistant size so this is kind of a waste */
 	ctx.drawImage(img,0,0,500,500);
 });
 
@@ -139,6 +156,12 @@ $('#AAA_02').click(function(){
 	var y = (c.height-img.height)/4;
 
 	ctx.drawImage(img,x,y);
+});
+
+$('#sample').click( function(){
+	lctx.moveTo(0,0);
+	lctx.lineTo(200,100);
+	lctx.stroke();
 });
 
 </script>

@@ -69,6 +69,9 @@
 /* you will need these variables for everything declare them outside of your functions c = canvas : ctx = context */
 var c = document.getElementById('canvasRcool');
 var ctx = c.getContext("2d");
+var img = $('#googlebot');
+var max_x;
+var max_y;
 
 function nuke() {
 
@@ -86,40 +89,58 @@ ctx.restore();
 /* This is what a standard JavaScript onload function looks like */
 document.getElementById("googlebot").onload=function(){
 	
-	var img = document.getElementById('googlebot');
+	img = document.getElementById('googlebot');
 	
 	ctx.drawImage(img,10,10,250,300);
+	
 	}	
 
 /* now let's switch to jqeury so we can cut some corners */
 $('#googlebot').click(function(){
 	nuke();
-	var img = document.getElementById('googlebot');
-	ctx.drawImage(img,10,10);
+
+	img = document.getElementById('googlebot');
+	var x = (c.width-img.width)/5;
+	var y = (c.height-img.height)/4;
+
+	ctx.drawImage(img,x,y);
 });
 
 $('#AAA_01').click(function(){
 	nuke();
-	var img = document.getElementById('AAA_01');
-	ctx.drawImage(img,10,10);
+	img = document.getElementById('AAA_01');
+	var x = (c.width-img.width)/5;
+	var y = (c.height-img.height)/4;
+
+	ctx.drawImage(img,x,y);
 });
 
 $('#AsukaCoffee').click(function(){
 	nuke();
-	var img = document.getElementById('AsukaCoffee');
-	ctx.drawImage(img,10,10,250,300);
+
+	img = document.getElementById('AsukaCoffee');
+	var x = (c.width-img.width)/5;
+	var y = (c.height-img.height)/4;
+//This is a special circumstance where the image is way bigger than everything else. I had to set a scale size to make it fit I am thinking about making logic to handle this but in reality image assets would be of consistant size so this is kind of a waste
+	ctx.drawImage(img,0,0,500,500);
 });
 
 $('#badge').click(function(){
 	nuke();
-	var img = document.getElementById('badge');
-	ctx.drawImage(img,10,10,250,300);
+	img = document.getElementById('badge');
+	var x = (c.width-img.width)/5;
+	var y = (c.height-img.height)/4;
+
+	ctx.drawImage(img,x,y);
 });
 
 $('#AAA_02').click(function(){
 	nuke();
 	var img = document.getElementById('AAA_02');
-	ctx.drawImage(img,10,10,250,300);
+	var x = (c.width-img.width)/5;
+	var y = (c.height-img.height)/4;
+
+	ctx.drawImage(img,x,y);
 });
 
 </script>

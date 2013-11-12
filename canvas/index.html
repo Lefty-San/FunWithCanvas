@@ -107,11 +107,10 @@ document.getElementById("googlebot").onload=function(){
 	img = document.getElementById('googlebot');
 
 	ctx.drawImage(img,10,10,250,300);
-
 	}	
 
 /* now let's switch to jqeury so we can cut some corners */
-$('#googlebot').click(function(){
+$('#googlebot').mousedown(function(){
 	nuke();
 
 	img = document.getElementById('googlebot');
@@ -121,8 +120,9 @@ $('#googlebot').click(function(){
 	ctx.drawImage(img,x,y);
 });
 
-$('#AAA_01').click(function(){
+$('#AAA_01').mousedown(function(){
 	nuke();
+
 	img = document.getElementById('AAA_01');
 	var x = (c.width-img.width)/5;
 	var y = (c.height-img.height)/4;
@@ -130,7 +130,7 @@ $('#AAA_01').click(function(){
 	ctx.drawImage(img,x,y);
 });
 
-$('#AsukaCoffee').click(function(){
+$('#AsukaCoffee').mousedown(function(){
 	nuke();
 
 	img = document.getElementById('AsukaCoffee');
@@ -140,8 +140,9 @@ $('#AsukaCoffee').click(function(){
 	ctx.drawImage(img,0,0,500,500);
 });
 
-$('#badge').click(function(){
+$('#badge').mousedown(function(){
 	nuke();
+
 	img = document.getElementById('badge');
 	var x = (c.width-img.width)/5;
 	var y = (c.height-img.height)/4;
@@ -149,8 +150,9 @@ $('#badge').click(function(){
 	ctx.drawImage(img,x,y);
 });
 
-$('#AAA_02').click(function(){
+$('#AAA_02').mousedown(function(){
 	nuke();
+
 	var img = document.getElementById('AAA_02');
 	var x = (c.width-img.width)/5;
 	var y = (c.height-img.height)/4;
@@ -158,7 +160,7 @@ $('#AAA_02').click(function(){
 	ctx.drawImage(img,x,y);
 });
 
-$('#sample').click( function(){
+$('#sample').mousedown( function(){
 	lctx.moveTo(0,0);
 	lctx.lineTo(200,100);
 	lctx.stroke();
@@ -182,9 +184,9 @@ function fixPageXY(e) {
   }
 
 }
- 
+
 //document.onmousemove = function(e) {
-$('#canvasCanStack').mouseup( function(e){
+$('#canvasCanStack').mousemove( function(e){
 
   e = e || window.event
 
@@ -193,7 +195,7 @@ $('#canvasCanStack').mouseup( function(e){
   document.getElementById('mouseX').value = e.pageX
   document.getElementById('mouseY').value = e.pageY
 
-  lctx.drawImage(img,e.pageX-125,e.pageY-10);
+  $('#canvasCanStack').mouseup( function(){lctx.drawImage(img,e.pageX-125,e.pageY-10)});
 
 });
 

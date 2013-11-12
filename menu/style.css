@@ -1,0 +1,33 @@
+.col_left_1 {
+	text-align: left;
+	background: gray;
+	width: 200px;
+	position: absolute;
+	left: 0px;
+}
+
+dt {
+	background: AntiqueWhite;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+.show_false {
+	
+}
+
+.dt_child {
+	height: 0px;
+	opacity: 0;
+}
+#title_1 {
+	z-index: 1;
+}
+
+#title_2 {
+	z-index: 2;
+}
+
+#title_3 {
+	z-index: 3;
+}

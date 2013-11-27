@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title>Data</title>
+			<script src="untitled.js"></script>
+	</head>
+	<body>
+		<div id="fill-me-up"></div>
+		<button onclick="run();">click me</button>
+	</body>
+	<script>
+	function run(){			
+		console.log(obj.length);
+		console.log(obj.toString);
+		console.log(obj[0].attrs);
+		console.log(obj[0].children[0].children[0].attrs.id);
+		console.log(obj[0].children[0].children);
+			for(x=0 ; x<obj[0].children[0].children.length ; x++){
+				document.getElementById('fill-me-up').innerHTML+=obj[0].children[0].children[x].attrs.id + "<br />";
+				document.getElementById('fill-me-up').innerHTML+=obj[0].children[0].children[x].attrs.length + "<br />";
+				document.getElementById('fill-me-up').innerHTML+=obj[0].children[0].children[x].attrs.skew + "<br />";
+				console.log(obj[0].children[0].children[x].attrs.id);
+				console.log(obj[0].children[0].children[x].attrs.length);
+				console.log(obj[0].children[0].children[x].attrs.skew);
+			}			
+		}
+	</script>
+</html>
